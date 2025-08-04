@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engini AI Agents Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  window.createIcons = lucide.createIcons;
+</script>
+<style>
+.star-rating {
+  margin-top: 10px;
+  color: #ffd700;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.rating-source {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+       <img id="enginiLogo" class="engini-logo" src="/logos/engini.png" alt="Engini logo" />
+        
+        <h1 class="header-title">Engini AI Agents Catalog</h1>
+        <p class="tagline">
+          Explore ready-to-use AI agents built for enterprise automation and operations.
+        </p>
+      </div>
+    </div>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg class="lucide-icon lucide-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="lucide-icon lucide-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+  </header>
+
+  <main class="container">
+    <div class="sidebar-filters" id="filterContainer">
+      </div>
+
+    <div id="mainCatalogView" class="view-active">
+      <div class="search-export-container">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search AI agents..." />
+        </div>
+      </div>
+
+      <p class="instruction" id="mainInstruction">
+        Click on any agent below to discover its key capabilities and enterprise use cases.
+      </p>
+
+      <div id="agentCatalog" class="agent-catalog"></div>
+    </div>
+
+    <div id="agentDetailsView" class="use-cases-display view-inactive">
+      <div id="agentDetailsContainer">
+        <div class="agent-details-header">
+          <img id="agentDetailsLogo" class="agent-details-logo" src="" alt="Agent logo" />
+          <h2 id="useCasesTitle" class="section-title"></h2>
+        </div>
+        <p id="agentDescription" class="agent-details-description"></p>
+        <div class="use-case-section">
+          <h3>Use Cases</h3>
+          <ul id="useCasesList"></ul>
+        </div>
+        <div class="related-systems-section">
+          <h3>Related Systems</h3>
+          <p id="relatedSystemsList"></p>
+        </div>
+      </div>
+      <button id="backToCatalogBtn" class="btn btn-secondary back-to-catalog">
+        <i class="fas fa-arrow-left"></i> Back to AI Agents Catalog
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Engini | Orchestrate Smarter with AI Agents</p>
+    </div>
+  </footer>
+<script>
+  
+  function getRandomRating() {
+  return Math.floor(Math.random() * 2) + 4; 
+}
+
+function getCompanyUsage() {
+  return Math.floor(Math.random() * 50) + 5; 
+}
+
+function renderStars(count) {
+  return '★'.repeat(count) + '☆'.repeat(5 - count);
+}
+const rating = getRandomRating();
+const companies = getCompanyUsage();
+
+card.innerHTML = `
+  ${iconOrImage}
+  <strong>${agent.name}</strong>
+  <p class="agent-category">${agent.category}</p>
+  <div class="star-rating">${renderStars(rating)}</div>
+  <div class="rating-source">Used by ${companies} companies</div>
+`;
+
+</script>
+  <script src="agents.js"></script>
+</body>
+</html>
